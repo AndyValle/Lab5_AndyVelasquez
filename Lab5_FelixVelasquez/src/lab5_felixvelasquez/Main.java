@@ -564,7 +564,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("JTree", jPanel1);
@@ -611,7 +611,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(cb_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jButton8)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ayuda Psicologica", jPanel2);
@@ -624,9 +624,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
         );
 
         pack();
@@ -727,6 +725,14 @@ public class Main extends javax.swing.JFrame {
             model.addElement("Copas Ganadas:  " + ((Entrenador)x).getCopasGanadas());
             
             jList.setModel(model);
+        } else if (x instanceof PreparadorFisico){
+            model.addElement(((PreparadorFisico)x).getNombre());
+            model.addElement(((PreparadorFisico)x).getApellido());
+            model.addElement(((PreparadorFisico)x).getNacionalidad());
+            model.addElement("Edad: " + ((PreparadorFisico)x).getEdad());
+            model.addElement("Años de contrato: " + ((PreparadorFisico)x).getDuracionContrato());
+            model.addElement("Especialidad:  " + ((PreparadorFisico)x).getEspecialidad());
+            model.addElement("Titulo:  " + ((PreparadorFisico)x).getNombreTitulo());
         }
         
         jd_Listar.pack();
