@@ -79,6 +79,22 @@ public class Main extends javax.swing.JFrame {
         sp_duracionEntrenador = new javax.swing.JSpinner();
         sp_copasEntrenador = new javax.swing.JSpinner();
         jButton7 = new javax.swing.JButton();
+        jd_crearPreparador = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jt_nombrePreparador = new javax.swing.JTextField();
+        jt_especialidad = new javax.swing.JTextField();
+        jt_nacionalidadPreparador = new javax.swing.JTextField();
+        sp_edadPreparador = new javax.swing.JSpinner();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jt_titulo = new javax.swing.JTextField();
+        jt_apellidoPreparador = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        sp_duracionPreparador = new javax.swing.JSpinner();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -381,6 +397,102 @@ public class Main extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setText("Nombre:");
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("Nacionalidad:");
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setText("Apellido:");
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setText("Edad:");
+
+        sp_edadPreparador.setModel(new javax.swing.SpinnerNumberModel(18, 18, 50, 1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setText("Nombre Titulo:");
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setText("Especialidad:");
+
+        jButton10.setText("Crear");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel25.setText("Duracion Contrato:");
+
+        sp_duracionPreparador.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        sp_duracionPreparador.setToolTipText("");
+
+        javax.swing.GroupLayout jd_crearPreparadorLayout = new javax.swing.GroupLayout(jd_crearPreparador.getContentPane());
+        jd_crearPreparador.getContentPane().setLayout(jd_crearPreparadorLayout);
+        jd_crearPreparadorLayout.setHorizontalGroup(
+            jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearPreparadorLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jt_nombrePreparador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_nacionalidadPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_edadPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_apellidoPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(sp_duracionPreparador, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        jd_crearPreparadorLayout.setVerticalGroup(
+            jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearPreparadorLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jt_nombrePreparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jt_apellidoPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jt_nacionalidadPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(sp_edadPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearPreparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(sp_duracionPreparador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addComponent(jButton10)
+                .addGap(62, 62, 62))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
@@ -415,6 +527,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton5.setText("Añadir Preparado Fisico");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         jButton6.setText("Añadir Psicologo");
 
@@ -643,6 +760,32 @@ public class Main extends javax.swing.JFrame {
         jd_crearEntrenador.setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        selectedNode = (DefaultMutableTreeNode) jTree.getPathForRow(3).getLastPathComponent();
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode();
+        newNode.setUserObject(new PreparadorFisico((int)sp_duracionPreparador.getValue(),jt_especialidad.getText(),jt_titulo.getText(),jt_nombrePreparador.getText(),jt_apellidoPreparador.getText(),jt_nacionalidadPreparador.getText(),(int)sp_edadPreparador.getValue()));
+        
+        selectedNode.add(newNode);
+        
+        JOptionPane.showMessageDialog(jd_crearEntrenador, "Preparador añadido al Arbol!");
+        jd_crearPreparador.setVisible(false);
+        
+        sp_edadPreparador.setValue(18);
+        sp_duracionPreparador.setValue(1);
+        jt_nombrePreparador.setText("");
+        jt_apellidoPreparador.setText("");
+        jt_nacionalidadPreparador.setText("");
+        jt_titulo.setText("");
+        jt_especialidad.setText("");
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        jd_crearPreparador.pack();
+        jd_crearPreparador.setModal(true);
+        jd_crearPreparador.setLocationRelativeTo(this);
+        jd_crearPreparador.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -682,6 +825,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_jugador;
     private javax.swing.JComboBox<String> cb_psicologo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -699,7 +843,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -717,6 +868,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Listar;
     private javax.swing.JDialog jd_crearEntrenador;
     private javax.swing.JDialog jd_crearJugador;
+    private javax.swing.JDialog jd_crearPreparador;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JMenuItem jm_eliminar;
     private javax.swing.JMenuItem jm_listar;
@@ -724,19 +876,26 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_apellidoEntrenador;
     private javax.swing.JTextField jt_apellidoJugador;
     private javax.swing.JTextField jt_apellidoModificar;
+    private javax.swing.JTextField jt_apellidoPreparador;
+    private javax.swing.JTextField jt_especialidad;
     private javax.swing.JTextField jt_nacionalidadEntrenador;
     private javax.swing.JTextField jt_nacionalidadJugador;
     private javax.swing.JTextField jt_nacionalidadModificar;
+    private javax.swing.JTextField jt_nacionalidadPreparador;
     private javax.swing.JTextField jt_nombreEntrenador;
     private javax.swing.JTextField jt_nombreJugador;
     private javax.swing.JTextField jt_nombreModificar;
+    private javax.swing.JTextField jt_nombrePreparador;
+    private javax.swing.JTextField jt_titulo;
     private javax.swing.JPopupMenu popmenu;
     private javax.swing.JSpinner sp_copasEntrenador;
     private javax.swing.JSpinner sp_duracionEntrenador;
     private javax.swing.JSpinner sp_duracionJugador;
+    private javax.swing.JSpinner sp_duracionPreparador;
     private javax.swing.JSpinner sp_edadEntrenador;
     private javax.swing.JSpinner sp_edadJugador;
     private javax.swing.JSpinner sp_edadModificar;
+    private javax.swing.JSpinner sp_edadPreparador;
     private javax.swing.JSpinner sp_numeroJugador;
     // End of variables declaration//GEN-END:variables
     DefaultMutableTreeNode selectedNode;
