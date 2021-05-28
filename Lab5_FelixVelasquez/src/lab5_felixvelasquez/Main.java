@@ -5,6 +5,7 @@
  */
 package lab5_felixvelasquez;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -60,6 +61,9 @@ public class Main extends javax.swing.JFrame {
         sp_duracionJugador = new javax.swing.JSpinner();
         sp_numeroJugador = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
+        jd_Listar = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList = new javax.swing.JList<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -67,6 +71,11 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         jm_listar.setText("Listar");
+        jm_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_listarActionPerformed(evt);
+            }
+        });
         popmenu.add(jm_listar);
 
         jm_modificar.setText("Modificar");
@@ -239,6 +248,26 @@ public class Main extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
+        jList.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jList);
+
+        javax.swing.GroupLayout jd_ListarLayout = new javax.swing.GroupLayout(jd_Listar.getContentPane());
+        jd_Listar.getContentPane().setLayout(jd_ListarLayout);
+        jd_ListarLayout.setHorizontalGroup(
+            jd_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ListarLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+        );
+        jd_ListarLayout.setVerticalGroup(
+            jd_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ListarLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personal");
@@ -372,6 +401,32 @@ public class Main extends javax.swing.JFrame {
         model.removeNodeFromParent(selectedNode);
     }//GEN-LAST:event_jm_eliminarActionPerformed
 
+    private void jm_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_listarActionPerformed
+        selectedNode = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
+        Persona x = (Persona)selectedNode.getUserObject();
+        DefaultListModel model = new DefaultListModel();
+        if(x instanceof Jugador){
+            model.addElement(((Jugador)x).getNombre());
+            model.addElement(((Jugador)x).getApellido());
+            model.addElement(((Jugador)x).getNacionalidad());
+            model.addElement("Edad: " + ((Jugador)x).getEdad());
+            model.addElement("Número: " + ((Jugador)x).getNumero());
+            model.addElement("Años de contrato: " + ((Jugador)x).getDuracionContrato());
+            model.addElement("Partidos Jugados: " + ((Jugador)x).getPartidosJugados());
+            model.addElement("Tarjetas Amarillas: " + ((Jugador)x).getTarjetasAmarillas());
+            model.addElement("Tarjetas Rojas: " + ((Jugador)x).getTarjetasRojas());
+            model.addElement("Copas Ganadas:  " + ((Jugador)x).getCopasGanadas());
+            
+            jList.setModel(model);
+            
+        }
+        
+        jd_Listar.pack();
+        jd_Listar.setModal(true);
+        jd_Listar.setLocationRelativeTo(this);
+        jd_Listar.setVisible(true);
+    }//GEN-LAST:event_jm_listarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,10 +476,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTree jTree;
+    private javax.swing.JDialog jd_Listar;
     private javax.swing.JDialog jd_crearJugador;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JMenuItem jm_eliminar;
