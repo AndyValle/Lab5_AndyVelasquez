@@ -8,6 +8,7 @@ package lab5_felixvelasquez;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -63,8 +64,8 @@ public class Main extends javax.swing.JFrame {
         sp_numeroJugador = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
         jd_Listar = new javax.swing.JDialog();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
         jd_crearEntrenador = new javax.swing.JDialog();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -288,24 +289,39 @@ public class Main extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        jList.setModel(new DefaultListModel());
-        jScrollPane2.setViewportView(jList);
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Apellido", "Edad", "Nacionalidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable);
 
         javax.swing.GroupLayout jd_ListarLayout = new javax.swing.GroupLayout(jd_Listar.getContentPane());
         jd_Listar.getContentPane().setLayout(jd_ListarLayout);
         jd_ListarLayout.setHorizontalGroup(
             jd_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ListarLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jd_ListarLayout.setVerticalGroup(
             jd_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ListarLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -624,7 +640,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -699,42 +715,22 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jm_eliminarActionPerformed
 
     private void jm_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_listarActionPerformed
-        selectedNode = (DefaultMutableTreeNode) jTree.getSelectionPath().getLastPathComponent();
-        Persona x = (Persona)selectedNode.getUserObject();
-        DefaultListModel model = new DefaultListModel();
-        if(x instanceof Jugador){
-            model.addElement(((Jugador)x).getNombre());
-            model.addElement(((Jugador)x).getApellido());
-            model.addElement(((Jugador)x).getNacionalidad());
-            model.addElement("Edad: " + ((Jugador)x).getEdad());
-            model.addElement("Número: " + ((Jugador)x).getNumero());
-            model.addElement("Años de contrato: " + ((Jugador)x).getDuracionContrato());
-            model.addElement("Partidos Jugados: " + ((Jugador)x).getPartidosJugados());
-            model.addElement("Tarjetas Amarillas: " + ((Jugador)x).getTarjetasAmarillas());
-            model.addElement("Tarjetas Rojas: " + ((Jugador)x).getTarjetasRojas());
-            model.addElement("Copas Ganadas:  " + ((Jugador)x).getCopasGanadas());
-            
-            jList.setModel(model);
-            
-        } else if (x instanceof Entrenador) {
-            model.addElement(((Entrenador)x).getNombre());
-            model.addElement(((Entrenador)x).getApellido());
-            model.addElement(((Entrenador)x).getNacionalidad());
-            model.addElement("Edad: " + ((Entrenador)x).getEdad());
-            model.addElement("Años de contrato: " + ((Entrenador)x).getDuracionContrato());
-            model.addElement("Copas Ganadas:  " + ((Entrenador)x).getCopasGanadas());
-            
-            jList.setModel(model);
-        } else if (x instanceof PreparadorFisico){
-            model.addElement(((PreparadorFisico)x).getNombre());
-            model.addElement(((PreparadorFisico)x).getApellido());
-            model.addElement(((PreparadorFisico)x).getNacionalidad());
-            model.addElement("Edad: " + ((PreparadorFisico)x).getEdad());
-            model.addElement("Años de contrato: " + ((PreparadorFisico)x).getDuracionContrato());
-            model.addElement("Especialidad:  " + ((PreparadorFisico)x).getEspecialidad());
-            model.addElement("Titulo:  " + ((PreparadorFisico)x).getNombreTitulo());
-        }
+        DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+        int n = model.getRowCount();
+        for (int i = 0; i < n; i++) {
+            model.removeRow(0);
         
+        }
+        DefaultTreeModel mod = (DefaultTreeModel) jTree.getModel();
+        for (int i = 0; i < ((DefaultMutableTreeNode)mod.getRoot()).getChildAt(0).getChildCount(); i++) {
+            selectedNode = (DefaultMutableTreeNode) ((DefaultMutableTreeNode)mod.getRoot()).getChildAt(0).getChildAt(i);
+            Persona x = (Persona) selectedNode.getUserObject();
+            if(x instanceof Jugador){
+                Object[] row = {x.getNombre(),x.getApellido(),x.getEdad(),x.getNacionalidad()};
+                model.addRow(row);
+            }
+                
+        }
         jd_Listar.pack();
         jd_Listar.setModal(true);
         jd_Listar.setLocationRelativeTo(this);
@@ -864,12 +860,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable;
     private javax.swing.JTree jTree;
     private javax.swing.JDialog jd_Listar;
     private javax.swing.JDialog jd_crearEntrenador;
